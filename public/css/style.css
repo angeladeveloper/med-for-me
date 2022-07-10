@@ -1,0 +1,38 @@
+/* IMPORTING a random google font, just so its not the generic, I am not a font person tho, someone please choose a nice one -angela 🦄 */
+/*  https://fonts.google.com/?sort=popularity */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+/* SET EVERYTHING TO BORDER BOX */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* Leah said her fav color is purple, and we definitely want to stand out from normal boring outdated sites.  */
+:root {
+  --main_color: rgb(114, 58, 205);
+}
+
+/* I always put a darker background color, its just easier on my eyes, feel free to change whenever.  */
+body {
+  background-color: rgba(2, 0, 0, 0.632);
+}
+
+/* These are only for the /kitten route, shouldn't affect anything else - except happiness  */
+h1.kittens {
+  font-family: "Poppins", sans-serif;
+  background-color: aliceblue;
+  margin-top: 20px;
+  font-size: 3rem;
+  text-align: center;
+  padding: 5px;
+  color: var(--main_color);
+}
+.kitten {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
