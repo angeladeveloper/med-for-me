@@ -7,7 +7,11 @@ User.hasMany(Medication, {
   onDelete: 'CASCADE'
 });
 
+<<<<<<< HEAD
 Medication.belongsTo(User, {
+=======
+Medicaiton.belongsTo(User, {
+>>>>>>> main
   foreignKey: 'user_id'
 });
 

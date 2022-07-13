@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class medication extends Model {
- 
+
 }
 
 medication.init(
