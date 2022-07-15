@@ -1,5 +1,9 @@
 -- all of this data should be fake, I used https://generatedata.com/generator to make it. 
 
+
+
+
+
 INSERT INTO `user` (`first_name`,`last_name`,`email`,`password`,`username`,`current_meds`,`past_meds`)
 VALUES
   ("Alexandra","Lars","nonummy.ipsum@icloud.couk","EEI80PSU7IR","Elvis","Actos, Tramadol HCl, TriNessa, Nexium","Enalapril Maleate, Levoxyl, Citalopram HBR, Cymbalta"),
