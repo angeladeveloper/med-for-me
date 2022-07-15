@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { MED , User , Comment } = require('../models');
 const withAuth = require('../utils/auth');
+const withAdmin = require('../utils/admin');
 
 router.get('/', async (req, res) => {
   try {
@@ -19,12 +20,13 @@ router.get('/', async (req, res) => {
 
     // Serialize data so the template can read it
     const meds = medData.map((med) => med.get({ plain: true }));
-    console.log('============================================',meds)
+    // console.log('============================================',meds)
     // Pass serialized data and session flag into template
     res.render('homepage', { 
       meds, 
       logged_in: req.session.logged_in,
       name: req.session.name,
+      permission: req.session.permission,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -78,10 +80,29 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+router.get('/admin', withAuth,withAdmin, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: MED }],
+    });
+    // console.log(userData);
+    const user = userData.get({ plain: true });
+
+    res.render('admin', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/');
     return;
   }
 
@@ -91,7 +112,7 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/');
     return;
   }
 

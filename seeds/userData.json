@@ -1,5 +1,11 @@
 [
   {
+    "name": "admin",
+    "email": "admin@hotmail.com",
+    "password": "password12345",
+    "permission": true
+  },
+  {
     "name": "Sal",
     "email": "sal@hotmail.com",
     "password": "password12345"

@@ -20,13 +20,19 @@
         <a href="/">COVID19 Vaccine Traker {{#if logged_in}} | Hi {{name}} {{/if}}</a>
       </h1>
       <nav>
-        <a class="no-button" id="Home" href="/">Home</a> |<a class="no-button" id="Home" href="/">APPROVED VACCINES</a>  |
+        {{#if permission}}
+          <a href="/admin">Admin</a> |
+        {{/if}}
+        <a class="no-button" id="Home" href="/">Home</a> 
+        |<a class="no-button" id="Home" href="/">APPROVED VACCINES</a>  |
         {{#if logged_in}}
         <a href="/profile">Dashboard</a> | 
         <button class="no-button header" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
         {{/if}}
+
+
       </nav>
     </header>
     <main class="card container container-fluid mt-5">
