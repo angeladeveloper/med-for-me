@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COVID19 Vaccine Traker</title>
+  <link rel="stylesheet" href="/css/card.css">
+  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+
+<body>
+  <div class="flex-column justify-space-around header" >
+    <header class="display-flex justify-space-between align-center p-2" style="background-color: rgb(123, 178, 238);">
+      <h1>
+        <img src="https://covid19.trackvaccines.org/wp-content/mu-plugins/mcgill-vaccinetracker-content/global/img/who-logo.png" 
+        width="48" height="48" alt="" style="vertical-align: middle; mix-blend-mode: darken;">
+        <a href="/">COVID19 Vaccine Traker {{#if logged_in}} | Hi {{name}} {{/if}}</a>
+      </h1>
+      <nav>
+        <a class="no-button" id="Home" href="/">Home</a> |<a class="no-button" id="Home" href="/">APPROVED VACCINES</a>  |
+        {{#if logged_in}}
+        <a href="/profile">Dashboard</a> | 
+        <button class="no-button header" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main class="card container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  </div>
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>

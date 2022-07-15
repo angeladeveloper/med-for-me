@@ -1,0 +1,90 @@
+[
+  {
+    "med_name": "COVOVAX",
+    "med_detail":"https://covid19.trackvaccines.org/vaccines/123/",
+    "type_of_vaccin": "Protein Subunit",
+    "made_by": "Serum Institute of India",
+    "approved_in": "5 countries",
+    "approval_source": "https://extranet.who.int/pqweb/vaccines/who-recommendation-siipl-covid-19-vaccine-rs-proteinnanoparticle"
+  },
+  {
+    "med_name": "Nuvaxovid",
+    "med_detail":"https://covid19.trackvaccines.org/vaccines/25/",
+    "type_of_vaccin": "Protein Subunit",
+    "made_by": "Nuvaxovid",
+    "approved_in": "38 countries",
+    "approval_source": "https://extranet.who.int/pqweb/vaccines/who-recommendation-novavax-inc-covid-19-vaccine-sars-cov-2-rs-recombinant-adjuvanted"
+  },  
+  {
+    "med_name": "Spikevax",
+    "med_detail":"https://covid19.trackvaccines.org/vaccines/22/",
+    "type_of_vaccin": "RNA",
+    "made_by": "Moderna",
+    "approved_in": "86 countries",
+    "approval_source": "https://extranet.who.int/pqweb/vaccines/covid-19-mrna-vaccine-nucleoside-modified"
+  },  
+  {
+    "med_name": "Comirnaty",
+    "med_detail":"https://covid19.trackvaccines.org/vaccines/6/",
+    "type_of_vaccin": "RNA",
+    "made_by": "Pfizer",
+    "approved_in": "146 countries",
+    "approval_source": "https://extranet.who.int/pqweb/vaccines/who-recommendation-covid-19-mrna-vaccine-nucleoside-modified-comirnaty"
+  },  
+  {
+    "med_name": "Convidecia",
+    "med_detail":"https://covid19.trackvaccines.org/vaccines/2/",
+    "type_of_vaccin": "Non Replicating Viral Vector",
+    "made_by": "CanSino",
+    "approved_in": "10 countries",
+    "approval_source": "https://extranet.who.int/pqweb/vaccines/convidecia"
+  },  
+  {
+    "med_name": "Ad26.COV2.S",
+    "med_detail":"https://covid19.trackvaccines.org/vaccines/1/",
+    "type_of_vaccin": "Non Replicating Viral Vector",
+    "made_by": "Johnson & Johnson",
+    "approved_in": "111 countries",
+    "approval_source": "https://extranet.who.int/pqweb/vaccines/who-recommendation-janssen-cilag-international-nv-belgium-covid-19-vaccine-ad26cov2-s"
+  },
+  {
+    "med_name": "Vaxzevria",
+    "med_detail":"https://covid19.trackvaccines.org/vaccines/4/",
+    "type_of_vaccin": "Non Replicating Viral Vector",
+    "made_by": "Oxford/AstraZeneca",
+    "approved_in": "141 countries",
+    "approval_source": "https://extranet.who.int/pqweb/vaccines/covid-19-vaccine-chadox1-s-recombinant"
+  }, 
+  {
+    "med_name": "Covishield ",
+    "med_detail":"https://covid19.trackvaccines.org/vaccines/48/",
+    "type_of_vaccin": "Non Replicating Viral Vector",
+    "made_by": "Serum Institute of India",
+    "approved_in": "49 countries",
+    "approval_source": "https://extranet.who.int/pqweb/vaccines/covid-19-vaccine-chadox1-s-recombinant-covishield"
+  }, 
+  {
+    "med_name": "Covaxin",
+    "med_detail":"https://covid19.trackvaccines.org/vaccines/9/",
+    "type_of_vaccin": "Inactivated",
+    "made_by": "Bharat Biotech",
+    "approved_in": "14 countries",
+    "approval_source": "https://extranet.who.int/pqweb/vaccines/who-recommendation-bharat-biotech-international-ltd-covid-19-vaccine-whole-virion"
+  }, 
+  {
+    "med_name": "Covilo",
+    "med_detail":"https://covid19.trackvaccines.org/vaccines/5/",
+    "type_of_vaccin": "Inactivated",
+    "made_by": "Sinopharm (Beijing)",
+    "approved_in": "91 countries",
+    "approval_source": "https://extranet.who.int/pqweb/vaccines/who-recommendation-covid-19-vaccine-bibp"
+  }, 
+  {
+    "med_name": "CoronaVac",
+    "med_detail":"https://covid19.trackvaccines.org/vaccines/7/",
+    "type_of_vaccin": "Inactivated",
+    "made_by": "Sinovac",
+    "approved_in": "56 countries",
+    "approval_source": "https://extranet.who.int/pqweb/vaccines/who-recommendation-sinovac-covid-19-vaccine-vero-cell-inactivated-coronavac"
+  }
+]

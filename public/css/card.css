@@ -1,0 +1,54 @@
+color scheme sourced from http://khroma.co/generator/
+canvas {
+  position:fixed;
+  z-index:-1;
+}
+
+:root {
+  --outer-space: #33393f;
+  --bright-turquoise: #2aefcb;
+  --gin: #e0eae4;
+  --heliotrope: #33393f;
+}
+
+/* set content highlight color and background */
+
+.back{
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size: 100% 100%;
+}
+.box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px 2em;
+}
+.box:first-child{
+  align-self: auto;
+}
+
+
+
+/* make each code card a flexbox column to align and justify content within it */
+.code-card {
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  min-height: 80%;
+  color: var(--heliotrope);
+  outline: 2px solid var(--heliotrope);
+  outline-color: #33393f;
+  outline-offset: -2px;
+}
+
+
+.card-text {
+  outline-color: none;
+  padding: 1%;
+  text-align: center;
+  font-family: 'Fira Sans', sans-serif;
+  position:relative ;
+  color: #ffffff;
+  color: var(--gin);
+}

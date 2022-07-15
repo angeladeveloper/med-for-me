@@ -1,0 +1,33 @@
+
+<!-- Loop over each object in the projects array -->
+<p class="row justify-center box myclass">{{meds.length}} Vaccines Granted Emergency Use Listing (EUL) by WHO</p><br><br><br>
+
+<section class="row justify-center box myclass" id="munthPick">
+{{#each meds as |med| }}
+<div class="row mb-4 project">
+<div class="col-md-12">
+<figure class="code-card back" style="outline-color: #{{get_color}};">
+        <a href="/med/{{med.id}}"></a>
+          <h6>
+            <div id='munthText' class="card-text" style="background-color: #{{get_color}};"><i>{{med.type_of_vaccin}}</div>
+            <a href="{{med_detail}}">
+              <p class="justify-center">{{med.made_by}}</p>
+              <p>{{med.med_name}}</p></a>
+              <p>{{med.med_name}} on {{format_date med.date_created}}</p>
+              <p><h6>Approved</h6> in {{med.approved_in}} contries.</p>
+              <p>
+                Approval Source :<br>
+                <a href="{{med.approval_source}}">extranet.who.int</a></p>
+              <p>
+                <a class="mark" href="/med/{{med.id}}"><p> Comments
+                {{#if med.comments}} 
+                   : {{ med.comments.length}} </p>
+                {{/if}}  </a>
+              </p>
+            </i>
+         </h6>
+</figure>
+</div>
+</div>
+{{/each}}
+</section>

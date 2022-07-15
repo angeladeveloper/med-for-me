@@ -1,0 +1,33 @@
+
+<div>
+
+  <p><h6 style="color: #065b83;">Posted on : {{  format_date meds.date_created}} by {{meds.med_name}} | {{meds.made_by}} </p></h6>
+  <p><span class="col-md-12">{{meds.content}}</span></p>
+{{#if comments.length}}
+<p class="commets">Comments:</p>
+{{/if}}  
+  {{#each comments as |comment| }}
+    <div class="row mb-4 project">
+      <div class="col-md-12">
+        <h6 class="col-md-2" style="display: inline;">{{get_emoji}}{{comment.comment}} <p style="color: red;display: inline;">|</p> Posted by: {{comment.name}} on {{format_date comment.date_created}}</h6>
+      </div>
+      <div class="col-md-7">
+        <p>
+        </p>
+      </div>
+    </div>
+{{/each}}
+{{#if logged_in}}
+  <form class="form new-comemnt-form">
+        <div class="form-group">
+          <label for="comment-submit"></label>
+          <input class="form-input" type="text" id="comment-submit" />
+        </div>
+        <div class="form-group">
+          <button style="display: inline;" class="btn btn-primary" type="submit" id="s1" value="{{cmss.id}}" >Submit</button>
+        </div>
+  </form>
+{{/if}}
+</div>
+<script src="../js/submit-comment.js"></script>
+ 
