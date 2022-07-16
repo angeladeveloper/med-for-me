@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { MED , User , Comment } = require('../models');
+const { MED, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -12,17 +12,17 @@ router.get('/', async (req, res) => {
           attributes: ['name'],
         },
         {
-          model:Comment,
+          model: Comment,
         }
       ],
     });
 
     // Serialize data so the template can read it
     const meds = medData.map((med) => med.get({ plain: true }));
-    console.log('============================================',meds)
+    console.log('============================================', meds)
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      meds, 
+    res.render('homepage', {
+      meds,
       logged_in: req.session.logged_in,
       name: req.session.name,
     });
@@ -41,7 +41,7 @@ router.get('/med/:id', async (req, res) => {
         },
         {
           model: Comment,
-          attributes: ['comment','name','date_created'],
+          attributes: ['comment', 'name', 'rating', 'date_created'],
         }
       ],
     });
@@ -50,7 +50,7 @@ router.get('/med/:id', async (req, res) => {
     const comments = meds.comments;
 
     res.render('med', {
-      meds,comments,
+      meds, comments,
       logged_in: req.session.logged_in
     });
   } catch (err) {

@@ -1,3 +1,11 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 header,
 .project:not(:last-child) {
   border-bottom: 1px solid rgb(204, 204, 204);
@@ -70,114 +78,9 @@ a :hover {
 }
 
 /* Angela - Working on adding a ranking system.  */
-i {
-  color: #330741;
-  font-size: 2rem;
-}
-
-.not-filled {
-  color: rgb(214, 173, 239);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-.range-container {
-  height: min-content;
-  display: flex;
-  align-items: flex-start;
-  justify-content: right;
-  flex-direction: column;
-}
-
-.range-container h4 {
-  color: #8373e6;
-  font-size: 30px;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
-}
-
-.radio-buttons {
-  width: 100%;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.custom-radio input {
-  display: none;
-}
-
-.radio-btn {
-  margin: 10px;
-  width: 40px;
-  height: 45px;
-  border: 3px solid transparent;
-  display: inline-block;
-  border-radius: 10px;
-  position: relative;
-  text-align: center;
-  box-shadow: 0 0 20px #c3c3c367;
-  cursor: pointer;
-}
-
-.radio-btn > i {
-  color: #ffffff;
-  background-color: #8373e6;
-  font-size: 12px;
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%) scale(4);
-  border-radius: 50px;
-  padding: 3px;
-  transition: 0.2s;
-  pointer-events: none;
-  opacity: 0;
-}
-
-.radio-btn .hobbies-icon {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-  top: 38%;
-  left: 48%;
-  transform: translate(-50%, -50%);
-}
-
-.radio-btn .hobbies-icon i {
-  color: #695ac2;
-  line-height: 35px;
-  font-size: 25px;
-}
-
-.radio-btn .hobbies-icon h3 {
-  color: #281e63;
-  font-family: 'Raleway', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-.custom-radio input:checked + .radio-btn {
-  border: 3px solid #4c37c6;
-}
-
-.custom-radio input:checked + .radio-btn > i {
-  opacity: 1;
-  transform: translateX(-50%) scale(1);
-}
-
-.custom-radio input:checked + .hobbies-icon {
-  background-color: #0ca656;
-}
-.custom-radio input:checked + .hobbies-icon > i {
-  opacity: 1;
+.rating-select {
+  width: 300px;
+  border: 0;
+  outline: none;
+  background-color: rgb(205, 248, 233);
 }
