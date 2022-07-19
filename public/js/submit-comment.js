@@ -4,6 +4,9 @@ const newFormHandler = async (event) => {
 
   const comment = document.querySelector('#comment-submit').value.trim();
   const ratingSelected = document.querySelector('#med-rating');
+  const rating = ratingSelected.options[ratingSelected.selectedIndex].value;
+  const med_id = document.querySelector('#submit-comment')
+  console.log(med_id.getAttribute('data-med-id'))
 
   if (comment) {
     const response = await fetch(`/api/comment`, {
@@ -11,7 +14,7 @@ const newFormHandler = async (event) => {
       body: JSON.stringify(
         {
           comment,
-          rating: ratingSelected.options[ratingSelected.selectedIndex].value
+          rating,
         }
       ),
       headers: {
@@ -20,7 +23,7 @@ const newFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/');
     } else {
       alert('Failed to create comment');
     }
@@ -45,5 +48,5 @@ const delButtonHandler = async (event) => {
 
 
 document
-  .querySelector('.new-comemnt-form')
+  .querySelector('#comemnt-form')
   .addEventListener('submit', newFormHandler);

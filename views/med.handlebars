@@ -9,7 +9,7 @@
   {{#each comments as |comment| }}
     <div class="row mb-4 project">
       <div class="col-md-12">
-        <h6 class="col-md-2" style="display: inline;">{{get_emoji}}{{comment.comment}} <p style="color: red;display: inline;">|</p> Posted by: {{comment.name}} on {{format_date comment.date_created}}</h6>
+        <h6 class="col-md-2" style="display: inline;">{{get_emoji}}{{comment.comment}} <p style="color: red;display: inline;">|</p> Posted by: {{comment.name}} on {{format_date comment.date_created}} <p>Rating: {{comment.rating}}</p> </h6>
       </div>
       <div class="col-md-7">
         <p>
@@ -18,7 +18,7 @@
     </div>
 {{/each}}
 {{#if logged_in}}
-  <form class="form new-comemnt-form">
+  <form class="form new-comemnt-form" id="comment-form">
         <div class="form-group">
           <label for="comment-submit"></label>
           <input class="form-input" type="text" id="comment-submit" />
@@ -34,10 +34,10 @@
       </select>
   </div>
 
-    <button style="display: inline;" class="btn btn-primary" type="submit" id="s1" value="{{cmss.id}}" >Submit</button>
+    <button style="display: inline;" class="btn btn-primary" type="submit" id="submit-comment" data-med-id=""="{{med.id}}" >Submit</button>
   </div>
 </form>
 {{/if}}
 
-<script src="../js/submit-comment.js"></script>
+<script src="/js/submit-comment.js"></script>
  
