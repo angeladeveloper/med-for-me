@@ -7,6 +7,7 @@ const newFormHandler = async (event) => {
   const ratingSelected = document.querySelector('#med-rating');
   const rating = ratingSelected.options[ratingSelected.selectedIndex].value;
   const med_id = document.querySelector('#s1').value.trim();
+  console.log(med_id)
 
   if (comment) {
     const meds_id = document.location.pathname.split('/').pop();
@@ -46,6 +47,7 @@ const delButtonHandler = async (event) => {
     } else {
       alert('Failed to delete project');
 
+    }
   }
 };
 
