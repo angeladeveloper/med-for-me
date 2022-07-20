@@ -27,6 +27,7 @@ Click on the medication that you want to learn more about. You can see what offi
 - Update database 📈 to hold even more data points, age, length of medication, dosage, and more. 
 - Better ranking system to visualize data better📊. 
 - More admin features✨. 
+- User can view their rankings for medications
 
 ## Technologies used
 
