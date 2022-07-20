@@ -17,10 +17,10 @@ router.post('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
+    console.log('-----------------',req.params.id);
     const medData = await MED.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
       },
     });
 

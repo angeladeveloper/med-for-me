@@ -1,0 +1,63 @@
+<!-- Loop over each object in the projects array -->
+<nav class="display-flex justify-center p-2">
+    <a href="/userslist">Users List</a> |
+    <a href="/addvaccine">Add New Covid VACCINE</a> |
+    <a href="/vaccines">Edit VACCINES</a>  |
+    <a href="/dashboard">Dashboard</a> |
+    <a href="/permission">Permissions</a>
+</nav>
+
+<form class="form new-vaccine-form">
+<section class="row justify-center box myclass" style="font-size: small;" id="munthPick">
+<table id="users">
+  <tr>
+    <th>Vaccine Name</th>
+    <th>Vaccine detail</th>
+    <th>Vaccine Type</th>
+    <th>Made by</th>
+    <th>Approved in</th>
+    <th>Approval Source</th>
+    <th></th>
+  </tr>
+<tr>
+<tr>
+  <td>
+    <div class="form-group">
+      <input class="form-input" type="text" id="vac-name" name="project-name" />
+    </div>
+  </td>
+  <td>
+    <div class="form-group">
+      <input class="form-input" type="text" id="vac-detail" name="project-name" />
+    </div>
+  </td>
+  <td>
+    <div class="form-group">
+      <input class="form-input" type="text" id="vac-type" name="project-name" />
+    </div>
+  </td>
+  <td>
+    <div class="form-group">
+      <input class="form-input" type="text" id="vac-made" name="project-name" />
+    </div>
+  </td>
+    <td>
+    <div class="form-group">
+      <input class="form-input" type="text" id="vac-approve" name="project-name" />
+    </div>
+  </td>
+    <td>
+    <div class="form-group">
+      <input class="form-input" type="text" id="vac-source" name="project-name" />
+    </div>
+  </td>
+  <td>
+    <div class="form-group">
+      <button  type="submit" class="btn btn-sm btn-danger" id="vac-btn">SUBMIT</button>
+    </div>
+  </td>
+</tr>
+</section>
+</form>
+
+<script src="./js/vaccine.js"></script>

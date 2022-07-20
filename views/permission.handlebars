@@ -1,0 +1,33 @@
+<!-- Loop over each object in the projects array -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+<nav class="display-flex justify-center p-2">
+    <a href="/userslist">Users List</a> |
+    <a href="/addvaccine">Add New Covid VACCINE</a> |
+    <a href="/vaccines">Edit VACCINES</a>  |
+    <a href="/dashboard">Dashboard</a>
+</nav>
+
+
+<hr style="width:100%;text-align:left;margin-left:0">
+
+<div class="ui-widget usersearch-form">
+  <label for="tags">Search User: </label>
+  <input id="tags" class="tags">
+  <button  type="submit" class="btn btn-sm btn-danger" id="search-btn">SUBMIT</button>
+</div>
+
+
+<script >
+  $( function() {
+    var values = '{{names.name}}';
+    console.log(values);
+    $( "#tags" ).autocomplete({
+      source: values.split(',')
+    });
+  } );
+</script>
+
+<script src="./js/usersearch.js"></script>

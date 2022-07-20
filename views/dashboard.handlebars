@@ -1,3 +1,4 @@
+<!-- Loop over each object in the projects array -->
 <nav class="display-flex justify-center p-2">
     <a href="/userslist">Users List</a> |
     <a class="no-button" id="addNew" href="/addvaccine">Add New Covid VACCINE</a> |
@@ -5,16 +6,9 @@
     <a href="/dashboard">Dashboard</a>
 </nav>
 
-<hr style="width:100%;text-align:left;margin-left:0">
 
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div>
-<hr style="width:100%;align:center;margin-left:0">
-
-
-</div>
-
-<script src="./js/profile.js"></script>
+<section class="row justify-center box myclass" >
+  {{#each meds as |med| }}
+    <div class="pie animate" style="--p:{{med.comments.length}};--c:{{get_color4chart}}"><h6>{{med.med_name}}</h6> {{med.comments.length}}%</div>
+  {{/each}}
+</section>
