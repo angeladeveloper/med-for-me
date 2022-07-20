@@ -1,11 +1,12 @@
 const newFormHandler = async (event) => {
+
   event.preventDefault();
 
 
   const comment = document.querySelector('#comment-submit').value.trim();
   const ratingSelected = document.querySelector('#med-rating');
   const rating = ratingSelected.options[ratingSelected.selectedIndex].value;
-  const med_id = document.querySelector('#submit-comment')
+  const med_id = document.querySelector('#s1').value.trim();
 
   if (comment) {
     const meds_id = document.location.pathname.split('/').pop();
@@ -16,7 +17,7 @@ const newFormHandler = async (event) => {
         {
           comment,
           rating,
-          med_id: meds_id
+          med_id
         }
       ),
       headers: {
@@ -44,7 +45,7 @@ const delButtonHandler = async (event) => {
       document.location.replace('/profile');
     } else {
       alert('Failed to delete project');
-    }
+
   }
 };
 

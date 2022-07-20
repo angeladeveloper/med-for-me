@@ -1,0 +1,55 @@
+<nav class="display-flex justify-center p-2">
+    <a href="/userslist">Users List</a> |
+    <a class="no-button" id="addNew" href="/addvaccine">Add New Covid VACCINE</a> |
+    <a class="no-button" id="editVaccine" href="/vaccines">Edit VACCINES</a>  |
+    <a href="/dashboard">Dashboard</a>
+</nav>
+
+<form class="user-form">
+
+<div class="row mt-4">
+  <div class="col-md-5">
+    <h3>Change Users Password :</h3>
+
+    <form class="form new-project-form">
+      <div class="form-group">
+        <label for="project-name">New Password:</label>
+        <input class="form-input" type="password" id="password" name="password" />
+      </div>
+    <div class="form-group">
+        <label for="project-name">Confirm Password:</label>
+        <input class="form-input" type="password" id="password-confirm" name="password-confirm" />
+      </div>
+        <button type="submit" class="btn btn-sm btn-danger" name="user-id" value="{{users.id}}">Confirm</button>
+    </form>
+  </div>
+</div>
+</form>
+
+<table id="users">
+  <tr>
+    <th>User Name</th>
+    <th>Email Address</th>
+    <th>Permissions</th>
+    <th></th>
+  </tr>
+<tr>
+    <tr>
+        <td>{{users.name}}</td>
+        <td>{{users.email}}</td>
+        <td>
+          <a href="/userslist/{{users.id}}">
+            {{#if users.permission}}
+                Admin
+            {{else}}
+                User
+            {{/if}}
+          </a>
+        </td>
+        <td> 
+          <button class="user-del btn btn-sm btn-danger" data-id="{{users.id}}">DELETE User</button>
+        </td>
+    </tr>
+
+
+<script src="../js/user.js"></script>

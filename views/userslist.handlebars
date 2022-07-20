@@ -1,0 +1,58 @@
+<!-- Loop over each object in the projects array -->
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+<nav class="display-flex justify-center p-2">
+    <a href="/userslist">Users List</a> |
+    <a href="/addvaccine">Add New Covid VACCINE</a> |
+    <a href="/vaccines">Edit VACCINES</a>  |
+    <a href="/dashboard">Dashboard</a>
+</nav>
+
+<form class="form usersearch">
+<hr style="width:100%;text-align:left;margin-left:0">
+
+<div class="ui-widget">
+  <label for="tags">Search User: </label>
+  <input id="tags">
+  <button  type="submit" class="usersearch btn btn-sm btn-danger" id="search-btn">SUBMIT</button>
+</div>
+
+<hr style="width:100%;text-align:left;margin-left:0">
+
+<section class="row justify-center box myclass" id="munthPick">
+<table id="users">
+  <tr>
+    <th>User Name</th>
+    <th>Email Address</th>
+    <th>Permissions</th>
+  </tr>
+<tr>
+{{#each users as |user| }}
+      <tr>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>
+          <a href="/userslist/{{user.id}}">
+            {{#if user.permission}}
+                Admin
+            {{else}}
+                User
+            {{/if}}
+          </a>
+        </td>
+    </tr>
+{{/each}}
+</section>
+
+<script >
+  $( function() {
+    var values = '{{names}}';
+    $( "#tags" ).autocomplete({
+      source: values.split(',')
+    });
+  } );
+</script>
+</form>
+<script src="./js/usersearch.js"></script>

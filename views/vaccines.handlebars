@@ -1,0 +1,35 @@
+<!-- Loop over each object in the projects array -->
+<nav class="display-flex justify-center p-2">
+    <a href="/userslist">Users List</a> |
+    <a class="no-button" id="addNew" href="/addvaccine">Add New Covid VACCINE</a> |
+    <a class="no-button" id="editVaccine" href="/vaccines">Edit VACCINES</a>  |
+    <a href="/dashboard">Dashboard</a>
+</nav>
+
+
+<div class="vaccine-list">
+<section class=" row justify-center box myclass " id="munthPick">
+<table id="users">
+  <tr>
+    <th>Vaccine Name</th>
+    <th>Vaccine Type</th>
+    <th>Made by</th>
+    <th>Approved in</th>
+    <th></th>
+  </tr>
+<tr>
+{{#each vaccs as |vaccine| }}
+      <tr>
+        <td>{{vaccine.med_name}}</td>
+        <td>{{vaccine.type_of_vaccin}}</td>
+        <td>{{vaccine.made_by}}</td>
+        <td>{{vaccine.approved_in}}</td>
+        <td>
+          <button class="btn btn-sm btn-danger" data-id="{{vaccine.id}}">DELETE</button>
+        </td>
+      </tr>
+{{/each}}
+</div>
+</section>
+
+<script src="./js/vacdel.js"></script>
