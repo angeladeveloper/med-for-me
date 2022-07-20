@@ -3,6 +3,35 @@ const { MED, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 
+router.get('/med/:id', async (req, res) => {
+  try {
+    const medData = await MED.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        {
+          model: Comment,
+          attributes: ['comment', 'name', 'rating', 'date_created'],
+        }
+      ],
+    });
+
+    const meds = medData.get({ plain: true });
+    console.log(meds)
+    const comments = meds.comments;
+
+    res.render('med', {
+      meds, comments,
+      logged_in: req.session.logged_in,
+      med_id: req.params.id
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/', async (req, res) => {
   try {
     // Get all MEDs and JOIN with user data
@@ -73,33 +102,3 @@ router.get('/signup', (req, res) => {
 });
 
 module.exports = router;
-
-// ✅MOVED route to medRoutes. 
-// router.get('/med/:id', async (req, res) => {
-//   try {
-//     const medData = await MED.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//         {
-//           model: Comment,
-//           attributes: ['comment', 'name', 'rating', 'date_created'],
-//         }
-//       ],
-//     });
-
-//     const meds = medData.get({ plain: true });
-//     console.log(meds)
-//     const comments = meds.comments;
-
-//     res.render('med', {
-//       meds, comments,
-//       logged_in: req.session.logged_in,
-//       med_id: req.params.id
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });

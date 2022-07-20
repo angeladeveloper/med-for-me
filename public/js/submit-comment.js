@@ -6,15 +6,17 @@ const newFormHandler = async (event) => {
   const ratingSelected = document.querySelector('#med-rating');
   const rating = ratingSelected.options[ratingSelected.selectedIndex].value;
   const med_id = document.querySelector('#submit-comment')
-  console.log(med_id.getAttribute('data-med-id'))
 
   if (comment) {
+    const meds_id = document.location.pathname.split('/').pop();
+    console.log("Med ID:", meds_id)
     const response = await fetch(`/api/comment`, {
       method: 'POST',
       body: JSON.stringify(
         {
           comment,
           rating,
+          med_id: meds_id
         }
       ),
       headers: {
@@ -48,5 +50,5 @@ const delButtonHandler = async (event) => {
 
 
 document
-  .querySelector('#comemnt-form')
+  .querySelector('#comment-form')
   .addEventListener('submit', newFormHandler);
