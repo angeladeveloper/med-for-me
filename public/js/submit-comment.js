@@ -1,21 +1,21 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
     
-var cms_id = document.getElementById('s1').value;
-console.log(cms_id);    
+var med_id = document.getElementById('s1').value;
+console.log('------------------------------------------',med_id);    
 
 const comment = document.querySelector('#comment-submit').value.trim();
     if (comment) {
       const response = await fetch(`/api/comment`, {
         method: 'POST',
-        body: JSON.stringify({ comment,cms_id }),
+        body: JSON.stringify({ comment,med_id }),
         headers: {
           'Content-Type': 'application/json',
         },
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/');
       } else {
         alert('Failed to create project');
       }
@@ -26,12 +26,12 @@ const comment = document.querySelector('#comment-submit').value.trim();
     if (event.target.hasAttribute('data-id')) {
       const id = event.target.getAttribute('data-id');
   
-      const response = await fetch(`/api/cms/${id}`, {
+      const response = await fetch(`/api/med/${id}`, {
         method: 'DELETE',
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
+        document.location.replace('/');
       } else {
         alert('Failed to delete project');
       }
