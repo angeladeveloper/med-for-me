@@ -31,4 +31,17 @@ module.exports = {
       return `⚙️`;
     }
   },
+
+  get_color4chart: () => {
+    const randomNum = Math.random();
+
+    // Return a random emoji
+    if (randomNum > 0.7) {
+      return `purple`;
+    } else if (randomNum > 0.4) {
+      return `orange`;
+    } else {
+      return `lightgreen`;
+    }
+  },
 };

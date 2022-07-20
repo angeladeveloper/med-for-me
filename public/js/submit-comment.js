@@ -1,4 +1,5 @@
 const newFormHandler = async (event) => {
+
   event.preventDefault();
 
 
@@ -45,6 +46,7 @@ const delButtonHandler = async (event) => {
       document.location.replace('/profile');
     } else {
       alert('Failed to delete project');
+
     }
   }
 };

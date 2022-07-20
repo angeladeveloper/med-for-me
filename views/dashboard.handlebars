@@ -1,0 +1,14 @@
+<!-- Loop over each object in the projects array -->
+<nav class="display-flex justify-center p-2">
+    <a href="/userslist">Users List</a> |
+    <a class="no-button" id="addNew" href="/addvaccine">Add New Covid VACCINE</a> |
+    <a class="no-button" id="editVaccine" href="/vaccines">Edit VACCINES</a>  |
+    <a href="/dashboard">Dashboard</a>
+</nav>
+
+
+<section class="row justify-center box myclass" >
+  {{#each meds as |med| }}
+    <div class="pie animate" style="--p:{{med.comments.length}};--c:{{get_color4chart}}"><h6>{{med.med_name}}</h6> {{med.comments.length}}%</div>
+  {{/each}}
+</section>

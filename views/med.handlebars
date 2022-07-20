@@ -23,6 +23,7 @@
           <label for="comment-submit"></label>
           <input class="form-input" type="text" id="comment-submit" />
         </div>
+
   <div class="range-container form-group">
     <h4>How would you rate the medication?<i class="fa-solid fa-syringe"></i></h4>
       <select class="rating-select" id="med-rating">
@@ -33,10 +34,11 @@
         <option value="5">5</option>
       </select>
   </div>
-
+        <div class="form-group">
 <button style="display: inline;" class="btn btn-primary" type="submit" id="s1" value="{{meds.id}}" >Submit</button>
-  </div>
+        </div>
 </form>
+
 {{/if}}
 
 <script src="/js/submit-comment.js"></script>
