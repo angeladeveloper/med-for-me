@@ -1,10 +1,19 @@
-header, .project:not(:last-child) {
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+header,
+.project:not(:last-child) {
   border-bottom: 1px solid rgb(204, 204, 204);
 }
 body {
-  background-color:	rgb(196, 238, 254);
+  background-color: rgb(196, 238, 254);
   text-decoration: none;
-  background-image:url('../assets/m.jpg');
+  background-image: url('../assets/m.jpg');
   background-repeat: no-repeat;
   background-size: auto;
   background-size: 100% 100%;
@@ -36,7 +45,7 @@ a {
 }
 .commets {
   text-align: left;
-  color:#065b83;
+  color: #065b83;
   font-weight: bold;
 }
 .mark {
@@ -52,7 +61,7 @@ a {
   border: none;
   display: flex;
   flex-direction: column;
-  background-color:	rgb(240, 246, 252);
+  background-color: rgb(240, 246, 252);
   border-radius: 8px;
   box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
     rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
@@ -62,9 +71,16 @@ a {
   margin-bottom: 5%;
 }
 
-
-a :hover{
-  transform:scale(1.0);
+a :hover {
+  transform: scale(1);
   text-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
-  rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
+    rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
+}
+
+/* Angela - Working on adding a ranking system.  */
+.rating-select {
+  width: 300px;
+  border: 0;
+  outline: none;
+  background-color: rgb(205, 248, 233);
 }

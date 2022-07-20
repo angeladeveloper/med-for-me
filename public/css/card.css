@@ -1,7 +1,6 @@
-color scheme sourced from http://khroma.co/generator/
 canvas {
-  position:fixed;
-  z-index:-1;
+  position: fixed;
+  z-index: -1;
 }
 
 :root {
@@ -13,7 +12,7 @@ canvas {
 
 /* set content highlight color and background */
 
-.back{
+.back {
   background-repeat: no-repeat;
   background-size: auto;
   background-size: 100% 100%;
@@ -23,11 +22,9 @@ canvas {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px 2em;
 }
-.box:first-child{
+.box:first-child {
   align-self: auto;
 }
-
-
 
 /* make each code card a flexbox column to align and justify content within it */
 .code-card {
@@ -42,13 +39,12 @@ canvas {
   outline-offset: -2px;
 }
 
-
 .card-text {
   outline-color: none;
   padding: 1%;
   text-align: center;
   font-family: 'Fira Sans', sans-serif;
-  position:relative ;
+  position: relative;
   color: #ffffff;
   color: var(--gin);
 }
