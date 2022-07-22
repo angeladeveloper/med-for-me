@@ -1,9 +1,10 @@
-# Med For Me
+# Med For Me 💊
 
 ## Project 2 with Leah Fries, Scott Elam, Hossein Amin neman, Joy Zhang, Angela Wright
 
-## Track your side effects of different medications and see how it is affecting other users. 
+## Track your side effects of different COVID medications and see how it is affecting other users. 
 
+<a href="https://drive.google.com/file/d/1obkhz42eNubBqNmc4YGc0ZvKqayqW3_V/view">📽️ Video Demonstration</a>
 
 ## User Story 🚀
 - USER visits website and is presented with a dashboard with different COVID medications💊. 
