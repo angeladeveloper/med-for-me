@@ -4,7 +4,38 @@ const withAuth = require('../utils/auth');
 const withAdmin = require('../utils/admin');
 
 
-router.get('/med/:id', async (req, res) => {
+router.get('/', async (req, res) => {
+  try {
+    // Get all MEDs and JOIN with user data
+    const medData = await MED.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        {
+          model: Comment,
+          attributes: ['comment', 'name', 'rating', 'date_created'],
+        }
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const meds = medData.map((med) => med.get({ plain: true }));
+    // console.log('============================================',meds)
+    // Pass serialized data and session flag into template
+    res.render('homepage', {
+      meds,
+      logged_in: req.session.logged_in,
+      name: req.session.name,
+      permission: req.session.permission,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/med/:id', withAuth, async (req, res) => {
   try {
     const medData = await MED.findByPk(req.params.id, {
       include: [
@@ -36,35 +67,35 @@ router.get('/med/:id', async (req, res) => {
 });
 
 
-router.get('/med/:id',withAuth, async (req, res) => {
+// router.get('/med/:id', withAuth, async (req, res) => {
 
-  try {
-    // Get all MEDs and JOIN with user data
-    const medData = await MED.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-        {
-          model: Comment,
-        }
-      ],
-    });
+//   try {
+//     // Get all MEDs and JOIN with user data
+//     const medData = await MED.findAll({
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['name'],
+//         },
+//         {
+//           model: Comment,
+//         }
+//       ],
+//     });
 
-    // Serialize data so the template can read it
-    const meds = medData.map((med) => med.get({ plain: true }));
-    console.log('============================================', meds)
-    // Pass serialized data and session flag into template
-    res.render('homepage', {
-      meds,
-      logged_in: req.session.logged_in,
-      name: req.session.name,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     // Serialize data so the template can read it
+//     const meds = medData.map((med) => med.get({ plain: true }));
+//     console.log('============================================', meds)
+//     // Pass serialized data and session flag into template
+//     res.render('homepage', {
+//       meds,
+//       logged_in: req.session.logged_in,
+//       name: req.session.name,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
@@ -86,7 +117,7 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 //-----------------------------------------------------------------------------------------------
-router.get('/userslist',withAuth, withAdmin, async (req, res) => {
+router.get('/userslist', withAuth, withAdmin, async (req, res) => {
   try {
     // Get all MEDs and JOIN with user data
     const usersData = await User.findAll({});
@@ -95,15 +126,15 @@ router.get('/userslist',withAuth, withAdmin, async (req, res) => {
     // console.log('============================================',meds)
     // Pass serialized data and session flag into template
 
-    var names=[];
-    for(var i=0;i<users.length;i++){
+    var names = [];
+    for (var i = 0; i < users.length; i++) {
       names.push(users[i].id);
       names.push(users[i].name);
     }
     //console.log(names);
 
-    res.render('userslist', { 
-      users, 
+    res.render('userslist', {
+      users,
       names,
       logged_in: req.session.logged_in,
       name: req.session.name,
@@ -115,16 +146,16 @@ router.get('/userslist',withAuth, withAdmin, async (req, res) => {
   }
 });
 //-----------------------------------------------------------------------------------------------
-router.get('/userslist/:id',withAuth,withAdmin, async (req, res) => {
+router.get('/userslist/:id', withAuth, withAdmin, async (req, res) => {
   try {
-    const userData = await User.findByPk(req.params.id, {     
+    const userData = await User.findByPk(req.params.id, {
       attributes: { exclude: ['password'] },
     });
-    console.log('--------------------------',userData);
+    console.log('--------------------------', userData);
     const users = userData.get({ plain: true });
     res.render('userper', {
-      users, 
-      permission: req.session.permission, 
+      users,
+      permission: req.session.permission,
       logged_in: true
     });
   } catch (err) {
@@ -149,16 +180,16 @@ router.get('/userslist/:id',withAuth,withAdmin, async (req, res) => {
 //   }
 // });
 //-----------------------------------------------------------------------------------------------
-router.get('/vaccines',withAuth, withAdmin, async (req, res) => {
+router.get('/vaccines', withAuth, withAdmin, async (req, res) => {
   try {
     // Get all MEDs and JOIN with user data
     const vaccsData = await MED.findAll({});
 
     const vaccs = vaccsData.map((vaccine) => vaccine.get({ plain: true }));
-    console.log('============================================',vaccs)
+    console.log('============================================', vaccs)
 
-    res.render('vaccines', { 
-      vaccs, 
+    res.render('vaccines', {
+      vaccs,
       permission: req.session.permission,
     });
   } catch (err) {
@@ -166,7 +197,7 @@ router.get('/vaccines',withAuth, withAdmin, async (req, res) => {
   }
 });
 //-----------------------------------------------------------------------------------------------
-router.get('/admin', withAuth,withAdmin, async (req, res) => {
+router.get('/admin', withAuth, withAdmin, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -186,56 +217,55 @@ router.get('/admin', withAuth,withAdmin, async (req, res) => {
 });
 
 
-router.get('/dashboard', withAuth,withAdmin, async (req, res) => {
-try {
-  const diagData = await MED.findAll({
-    include: [
-      {
-        model: User,
-        attributes: ['name'],
-      },
-      {
-        model:Comment,
-      }
-    ],
-  });
-  // Serialize data so the template can read it
-  const meds = diagData.map((med) => med.get({ plain: true }));
-  res.render('dashboard', { 
-    meds, 
-    logged_in: req.session.logged_in,
-    name: req.session.name,
-    permission: req.session.permission,
-  });
-} catch (err) {
-  res.status(500).json(err);
-}
-});
-
-
-router.get('/permission', withAuth,withAdmin,async (req, res) => {
-try {
-  const userData = await User.findAll({});
-  const users = userData.map((user) => user.get({ plain: true }));
-  var names=[];
-  for(var i=0;i<users.length;i++){
-    names.push(users[i].name);
+router.get('/dashboard', withAuth, withAdmin, async (req, res) => {
+  try {
+    const diagData = await MED.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        {
+          model: Comment,
+        }
+      ],
+    });
+    // Serialize data so the template can read it
+    const meds = diagData.map((med) => med.get({ plain: true }));
+    res.render('dashboard', {
+      meds,
+      logged_in: req.session.logged_in,
+      name: req.session.name,
+      permission: req.session.permission,
+    });
+  } catch (err) {
+    res.status(500).json(err);
   }
-  console.log(names);
-
-  res.render('permission', { 
-    users, 
-    names,
-    logged_in: req.session.logged_in,
-  });
-} catch (err) {
-  res.status(500).json(err);
-}
 });
 
 
-router.get('/addvaccine',withAuth,withAdmin, async (req, res) => {
-        res.render('addvaccine', {logged_in: true});
+router.get('/permission', withAuth, withAdmin, async (req, res) => {
+  try {
+    const userData = await User.findAll({});
+    const users = userData.map((user) => user.get({ plain: true }));
+    var names = [];
+    for (var i = 0; i < users.length; i++) {
+      names.push(users[i].name);
+    }
+    console.log(names);
+    res.render('permission', {
+      users,
+      names,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.get('/addvaccine', withAuth, withAdmin, async (req, res) => {
+  res.render('addvaccine', { logged_in: true });
 });
 
 
