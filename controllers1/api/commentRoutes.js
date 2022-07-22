@@ -1,16 +1,38 @@
 const router = require('express').Router();
-const session = require('express-session');
 const { Comment } = require('../../models');
+const session = require('express-session');
 const withAuth = require('../../utils/auth');
+
+
+router.get('/:id', async (req, res) => {
+  try {
+    const commentData = await Comment.findAll({
+      where: {
+        med_id: req.params.id
+      }
+    })
+    const comments = commentData.map((med) => med.get({ plain: true }));
+    console.log(comments)
+    res.render('med', {
+      comments,
+      logged_in: req.session.logged_in,
+      med_id: req.params.id
+    });
+  }
+  catch (err) {
+    res.status(500).json(err);
+  }
+
+})
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    console.log(req.session);
     const newComment = await Comment.create({
       ...req.body,
-      med_id: req.body.med_id,
       name: req.session.name,
-    });
+    },
+
+    );
 
     res.status(200).json(newComment);
   } catch (err) {
