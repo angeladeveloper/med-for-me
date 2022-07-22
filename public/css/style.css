@@ -1,19 +1,10 @@
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
-
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
-
-header,
-.project:not(:last-child) {
+header, .project:not(:last-child) {
   border-bottom: 1px solid rgb(204, 204, 204);
 }
 body {
-  background-color: rgb(196, 238, 254);
+  background-color:	rgb(196, 238, 254);
   text-decoration: none;
-  background-image: url('../assets/m.jpg');
+  background-image:url('../assets/m.jpg');
   background-repeat: no-repeat;
   background-size: auto;
   background-size: 100% 100%;
@@ -26,7 +17,7 @@ a {
   border: none;
   padding: 0;
   cursor: pointer;
-  color: #1b89bc;
+  color: #4ea2ca;
   text-decoration: none;
   font-size: 100%;
 }
@@ -39,18 +30,18 @@ a {
 }
 
 .dollar-amount {
-  color: #056605;
+  color: #0e9d0e;
   font-weight: bold;
   margin-left: -5px;
 }
 .commets {
   text-align: left;
-  color: #065b83;
+  color:#13313f;
   font-weight: bold;
 }
 .mark {
   font-size: small;
-  text-align: right;
+  text-align: center;
 }
 .card {
   opacity: 85%;
@@ -61,7 +52,7 @@ a {
   border: none;
   display: flex;
   flex-direction: column;
-  background-color: rgb(240, 246, 252);
+  background-color:	rgb(240, 246, 252);
   border-radius: 8px;
   box-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
     rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
@@ -71,16 +62,9 @@ a {
   margin-bottom: 5%;
 }
 
-a :hover {
-  transform: scale(1);
-  text-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
-    rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
-}
 
-/* Angela - Working on adding a ranking system.  */
-.rating-select {
-  width: 300px;
-  border: 0;
-  outline: none;
-  background-color: rgb(205, 248, 233);
+a :hover{
+  transform:scale(1.0);
+  text-shadow: rgba(60, 64, 67, 2) 0 1px 2px 0,
+  rgba(60, 64, 67, 0.15) 0 2px 4px 3px;
 }
